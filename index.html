@@ -13,11 +13,44 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
+<body class="row">
+  <header class="column-full">
+    <div class="container">
+      <h2 class="font-proza">Code Journal</h2>
+    </div>
   </header>
-  <main>
+  <main class="container">
+    <h1 class="font-proza column-full">New Entry</h1>
+    <div data-view="entry-form">
+      <form>
+        <div class="row">
+          <img class="column-half padding-bottom" src="images/placeholder-image-square.jpg">
+          <div class="column-half">
+            <div class="padding-bottom">
+              <label class="font-proza" for="title">Title</label>
+              <input class="full-width" id="title" name="title" type="text" required>
+            </div>
+            <div class="padding-bottom">
+              <label class="font-proza" for="photo-url">Photo URL</label>
+              <input class="full-width" id="photo-url" name="photo-url" type="text" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label class="font-proza" for="notes">Notes</label>
+            <div>
+              <textarea class="full-width" id="notes" name="notes" rows="10" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row align-right">
+          <button>Save</button>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
