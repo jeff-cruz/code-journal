@@ -27,7 +27,7 @@ function buttonClick(event) {
     entryID: data.nextEntryId
   };
   data.nextEntryId++;
-  data.entries.push(entry);
+  data.entries.unshift(entry);
   $placeholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $journalForm.reset();
 }

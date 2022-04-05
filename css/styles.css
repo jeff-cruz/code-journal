@@ -11,6 +11,10 @@ header {
   font-family: "Proza Libre", sans-serif;
 }
 
+h2 {
+  font-weight: 400;
+}
+
 label {
   font-weight: 600;
 }
@@ -44,4 +48,9 @@ button {
 
 .align-right {
   justify-content: flex-end;
+}
+
+.top-bottom-padding {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
