@@ -49,3 +49,12 @@ button {
 .align-right {
   justify-content: flex-end;
 }
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.view {
+  display: contents;
+}

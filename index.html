@@ -26,9 +26,9 @@
     </div>
   </header>
   <main class="container">
-    <div class="row">
-      <h1 class="font-proza column-full">New Entry</h1>
-      <div data-view="entry-form">
+    <div class="hidden" data-view="entry-form">
+      <div class="row">
+        <h1 class="font-proza column-full">New Entry</h1>
         <form>
           <div class="row">
             <img class="placeholder column-half padding-bottom" src="images/placeholder-image-square.jpg">
@@ -56,12 +56,26 @@
           </div>
         </form>
       </div>
-      <div data-view="entries">
-        <ul>
+    </div>
 
-        </ul>
+    <div class="view" data-view="entries">
+      <div class="row">
+        <h1 class="font-proza column-full">Entries</h1>
       </div>
     </div>
+    <ul>
+      <li>
+        <div class="row">
+          <img class="placeholder column-half padding-bottom" src="images/placeholder-image-square.jpg">
+          <div class="column-half">
+            <h2>Pikachu</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, odit commodi. Molestiae nihil
+              dignissimos at! Veritatis, blanditiis, nemo veniam dicta fugit ullam ipsam et cumque sint excepturi natus
+              animi dolore?</p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
