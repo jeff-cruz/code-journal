@@ -1,0 +1,51 @@
+body {
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #562b81;
+  color: white;
+}
+
+.font-proza {
+  font-family: "Proza Libre", sans-serif;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  height: 3em;
+}
+
+input:focus,
+textarea:focus {
+  outline: #562b81 solid 0.2em;
+}
+
+.padding-bottom {
+  padding-bottom: 2em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+button {
+  margin-top: 1em;
+  text-transform: uppercase;
+  background-color: #562b81;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
