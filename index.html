@@ -24,8 +24,8 @@
             <div>
               <h2 class="font-proza code-journal">Code Journal</h2>
             </div>
-            <div>
-              <button class="font-proza entries-button">Entries</button>
+            <div class="entries-link">
+              <a>Entries</a>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
     </div>
   </header>
   <main class="container">
-    <div class="view" data-view="entry-form">
+    <div class="form-page view" data-view="entry-form">
       <div class="row">
         <h1 class="font-proza column-full">New Entry</h1>
         <form>
@@ -65,14 +65,14 @@
       </div>
     </div>
 
-    <div class="view" data-view="entries">
+    <div class="entries-page hidden" data-view="entries">
       <div class="row">
         <h1 class="font-proza column-full">Entries</h1>
       </div>
-    </div>
-    <div>
-      <ul class="entry-list">
-      </ul>
+      <div>
+        <ul class="entry-list">
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>

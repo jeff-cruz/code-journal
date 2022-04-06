@@ -31,3 +31,14 @@ function buttonClick(event) {
   $placeholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $journalForm.reset();
 }
+
+var $entriesButton = document.querySelector('.entries-link');
+$entriesButton.addEventListener('click', entriesClick);
+
+var $formPage = document.querySelector('.form-page');
+var $entriesPage = document.querySelector('.entries-page');
+function entriesClick(event) {
+  $entriesButton.className = 'entries-link';
+  $formPage.className = 'form-page hidden';
+  $entriesPage.className = 'entries-page view';
+}
