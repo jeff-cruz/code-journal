@@ -85,3 +85,7 @@ ul {
   padding-top: 0.6em;
   text-transform: uppercase;
 }
+
+.align-center {
+  text-align: center;
+}

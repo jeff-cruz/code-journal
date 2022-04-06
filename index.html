@@ -25,7 +25,7 @@
               <h2 class="font-proza code-journal">Code Journal</h2>
             </div>
             <div class="entries-link">
-              <a>Entries</a>
+              <a data-view="entries">Entries</a>
             </div>
           </div>
         </div>
@@ -33,7 +33,8 @@
     </div>
   </header>
   <main class="container">
-    <div class="form-page view" data-view="entry-form">
+
+    <div class="view" id="form-page" data-view="entry-form">
       <div class="row">
         <h1 class="font-proza column-full">New Entry</h1>
         <form>
@@ -65,16 +66,19 @@
       </div>
     </div>
 
-    <div class="entries-page hidden" data-view="entries">
+    <div class="view hidden" id="entries-page" data-view="entries">
       <div class="row space-between">
         <div>
           <h1 class="font-proza column-full">Entries</h1>
         </div>
         <div class="new-entry">
-          <a>New</a>
+          <a data-view="entry-form">New</a>
         </div>
       </div>
       <div>
+        <div class="no-entries align-center hidden">
+          <p>No entries have been recorded.</p>
+        </div>
         <ul class="entry-list">
         </ul>
       </div>
