@@ -19,33 +19,38 @@ function beforeUnload() {
   return entriesJSON;
 }
 
-// function renderEntry(entry) {
-//   var $li = document.createElement('li');
+function renderEntry(entry) {
+  var $li = document.createElement('li');
 
-//   var $row = document.createElement('div');
-//   $li.appendChild($row);
+  var $row = document.createElement('div');
+  $row.setAttribute('class', 'row');
+  $li.appendChild($row);
 
-//   var $img = document.createElement('img');
-//   $row.appendChild($img);
+  var $img = document.createElement('img');
+  $img.setAttribute('class', 'placeholder column-half padding-bottom');
+  $img.setAttribute('src', entry.photoURL);
+  $row.appendChild($img);
 
-//   var $columnHalf = document.createElement('div');
-//   $row.appendChild($columnHalf);
+  var $columnHalf = document.createElement('div');
+  $columnHalf.setAttribute('class', 'column-half');
+  $row.appendChild($columnHalf);
 
-//   var $title = document.createElement('h1');
-//   $columnHalf.appendChild($title);
+  var $title = document.createElement('h1');
+  $title.textContent = entry.title;
+  $columnHalf.appendChild($title);
 
-//   var $notes = document.createElement('p');
-//   $columnHalf.append($notes);
+  var $notes = document.createElement('p');
+  $notes.textContent = entry.notes;
+  $columnHalf.appendChild($notes);
 
-//   $row.setAttribute('class', 'row');
-//   $img.setAttribute('class', 'placeholder column-half padding-bottom');
-//   $columnHalf.setAttribute('class', 'column-half');
-//   $title.textContent = data.entries.title;
-//   $notes.textContent = data.entries.notes;
+  return $li;
+}
 
-//   var $ul = document.querySelector('ul');
-//   for (var i = 0; i < entry.length; i++) {
-//     var entryInfo = renderEntry([i]);
-//     $ul.appendChild(entryInfo);
-//   }
-// }
+window.addEventListener('DOMContentLoaded', loopOverListOfEntries);
+
+var $ul = document.querySelector('.entry-list');
+function loopOverListOfEntries(entry) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $ul.append(renderEntry(data.entries[i]));
+  }
+}

@@ -36,7 +36,7 @@ textarea:focus {
   width: 100%;
 }
 
-button {
+.save {
   margin-top: 1em;
   text-transform: uppercase;
   background-color: #562b81;
