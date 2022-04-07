@@ -74,7 +74,6 @@ function submitButton(event) {
     data.editing = null;
     $formPage.className = 'view hidden';
     $entriesPage.className = 'view';
-    noEntries();
     viewSwap('entries');
   }
 }
@@ -130,6 +129,7 @@ function viewSwap(view) {
       $viewList[i].className = 'view hidden';
     }
   }
+  noEntries();
 }
 
 // entries button
@@ -137,7 +137,6 @@ $entriesButton.addEventListener('click', entriesButton);
 function entriesButton(event) {
   viewSwap('entries');
   data.view = 'entries';
-  noEntries();
 }
 
 // new entry button
@@ -177,7 +176,7 @@ function prepopulateData(dataForm) {
 }
 
 function noEntries(event) {
-  if (data.nextEntryId !== 1) {
+  if (data.entries.length !== 0) {
     $noEntry.className = 'no-entries align-center hidden';
   } else {
     $noEntry.className = 'no-entries align-center';
