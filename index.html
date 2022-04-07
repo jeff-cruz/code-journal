@@ -20,15 +20,23 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h2 class="font-proza">Code Journal</h2>
+          <div class="row">
+            <div>
+              <h2 class="font-proza code-journal">Code Journal</h2>
+            </div>
+            <div class="entries-link">
+              <a data-view="entries">Entries</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
   <main class="container">
-    <div class="row">
-      <h1 class="font-proza column-full">New Entry</h1>
-      <div data-view="entry-form">
+
+    <div class="view" id="form-page" data-view="entry-form">
+      <div class="row">
+        <h1 class="font-proza column-full">New Entry</h1>
         <form>
           <div class="row">
             <img class="placeholder column-half padding-bottom" src="images/placeholder-image-square.jpg">
@@ -52,9 +60,27 @@
             </div>
           </div>
           <div class="row align-right">
-            <button>Save</button>
+            <button class="save">Save</button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <div class="view hidden" id="entries-page" data-view="entries">
+      <div class="row space-between">
+        <div>
+          <h1 class="font-proza column-full">Entries</h1>
+        </div>
+        <div class="new-entry">
+          <a data-view="entry-form">New</a>
+        </div>
+      </div>
+      <div>
+        <div class="no-entries align-center hidden">
+          <p>No entries have been recorded.</p>
+        </div>
+        <ul class="entry-list">
+        </ul>
       </div>
     </div>
   </main>

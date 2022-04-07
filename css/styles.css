@@ -36,7 +36,7 @@ textarea:focus {
   width: 100%;
 }
 
-button {
+.save {
   margin-top: 1em;
   text-transform: uppercase;
   background-color: #562b81;
@@ -48,4 +48,44 @@ button {
 
 .align-right {
   justify-content: flex-end;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.view {
+  display: contents;
+}
+
+.entries-link {
+  margin-left: 1em;
+  margin-top: 1.15em;
+  color: white;
+  background-color: #562b81;
+  font-size: 20px;
+  font-family: "Proza Libre", sans-serif;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.new-entry {
+  color: white;
+  background-color: #562b81;
+  font-size: 14px;
+  font-family: "Proza Libre", sans-serif;
+  border-radius: 0.5em;
+  height: 2.5em;
+  width: 4em;
+  margin-top: 2em;
+  text-align: center;
+  padding-top: 0.6em;
+  text-transform: uppercase;
+}
+
+.align-center {
+  text-align: center;
 }
