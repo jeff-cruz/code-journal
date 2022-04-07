@@ -49,20 +49,27 @@ function renderEntry(entry) {
   var $row = document.createElement('div');
   var $img = document.createElement('img');
   var $columnHalf = document.createElement('div');
+  var $titlecontainer = document.createElement('div');
   var $title = document.createElement('h1');
+  var $pencil = document.createElement('i');
   var $notes = document.createElement('p');
 
   $row.setAttribute('class', 'row');
   $img.setAttribute('class', 'placeholder column-half padding-bottom');
   $img.setAttribute('src', entry.photoURL);
   $columnHalf.setAttribute('class', 'column-half');
+  $pencil.setAttribute('class', 'fa-solid fa-pencil fa-2xl');
+  $titlecontainer.setAttribute('class', 'row space-between');
   $title.textContent = entry.title;
   $notes.textContent = entry.notes;
 
   $li.appendChild($row);
   $row.appendChild($img);
   $row.appendChild($columnHalf);
-  $columnHalf.appendChild($title);
+  $columnHalf.appendChild($titlecontainer);
+  $titlecontainer.appendChild($title);
+  $titlecontainer.appendChild($pencil);
+  $row.appendChild($columnHalf);
   $columnHalf.appendChild($notes);
 
   return $li;
