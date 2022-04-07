@@ -12,11 +12,9 @@ var $viewList = document.querySelectorAll('.view');
 
 $inputURL.addEventListener('input', photoInput);
 $journalForm.addEventListener('submit', submitButton);
-$entriesButton.addEventListener('click', viewSwap);
-$newEntryButton.addEventListener('click', viewSwap);
 window.addEventListener('DOMContentLoaded', appendEntry);
+window.addEventListener('DOMContentLoaded', viewSwap(data.view));
 
-// INPUT PHOTO PLACEHOLDER
 function photoInput(event) {
   if ($inputURL.value !== '') {
     $placeholder.src = event.target.value;
@@ -25,7 +23,6 @@ function photoInput(event) {
   }
 }
 
-// SUBMIT ENTRY
 function submitButton(event) {
   event.preventDefault();
   var formTitle = document.querySelector('#title').value;
@@ -44,9 +41,9 @@ function submitButton(event) {
   $entryList.prepend(renderEntry(entry));
   $formPage.className = 'view hidden';
   $entriesPage.className = 'view';
+  viewSwap('entries');
 }
 
-// RENDER DOM TREE FUNCTION
 function renderEntry(entry) {
   var $li = document.createElement('li');
   var $row = document.createElement('div');
@@ -71,25 +68,32 @@ function renderEntry(entry) {
   return $li;
 }
 
-// APPEND DOM TREE TO ENTRY LIST
 function appendEntry(entry) {
   for (var i = 0; i < data.entries.length; i++) {
     $entryList.append(renderEntry(data.entries[i]));
   }
 }
 
-function viewSwap(event) {
-  var anchorView = event.target.getAttribute('data-view');
-
-  if (event.target.matches('a')) {
-    for (var i = 0; i < $viewList.length; i++) {
-      var currentView = $viewList[i].getAttribute('data-view');
-      if (anchorView !== currentView) {
-        $viewList[i].className = 'view hidden';
-      } else if (anchorView === currentView) {
-        $viewList[i].className = 'view';
-        data.view = currentView;
-      }
+function viewSwap(view) {
+  data.view = view;
+  for (var i = 0; i < $viewList.length; i++) {
+    var viewName = $viewList[i].getAttribute('data-view');
+    if (viewName === view) {
+      $viewList[i].className = 'view';
+    } else if (viewName !== view) {
+      $viewList[i].className = 'view hidden';
     }
   }
+}
+
+$entriesButton.addEventListener('click', entriesButton);
+function entriesButton(event) {
+  viewSwap('entries');
+  data.view = 'entries';
+}
+
+$newEntryButton.addEventListener('click', newEntryButton);
+function newEntryButton(event) {
+  viewSwap('entry-form');
+  data.view = 'entry-form';
 }
