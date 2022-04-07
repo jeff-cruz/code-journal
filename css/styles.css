@@ -94,3 +94,66 @@ i {
   color: #562b81;
   padding-top: 1.15em;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.modal {
+  max-width: 25em;
+  max-height: 10em;
+  margin: auto;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-text {
+  margin-top: 2em;
+  text-align: center;
+  font-weight: 400;
+  background-color: white;
+  font-family: sans-serif;
+}
+
+.cancel-button {
+  background-color: darkgrey;
+  color: black;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 0.3em;
+  margin-top: 1.5em;
+  margin-right: 10em;
+}
+
+.confirm-button {
+  background-color: rgb(214, 0, 0);
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 1.5em;
+  margin-left: 5em;
+}
+
+.delete {
+  background-color: none;
+  color: red;
+  border: none;
+  text-decoration: underline;
+}
