@@ -37,7 +37,8 @@
 
     <div class="view" id="form-page" data-view="entry-form">
       <div class="row">
-        <h1 class="font-proza column-full">New Entry</h1>
+        <h1 class="font-proza column-full" id="new-title">New Entry</h1>
+
         <form>
           <div class="row">
             <img class="placeholder column-half padding-bottom" src="images/placeholder-image-square.jpg">
@@ -48,7 +49,7 @@
               </div>
               <div class="padding-bottom">
                 <label class="font-proza" for="photo-url">Photo URL</label>
-                <input class="full-width" id="photo-url" name="photo-url" type="url" required>
+                <input class="full-width" id="photoURL" name="photoURL" type="url" required>
               </div>
             </div>
           </div>
@@ -77,13 +78,14 @@
         </div>
       </div>
       <div>
-        <!-- <div class="no-entries align-center hidden">
+        <div class="no-entries align-center">
           <p>No entries have been recorded.</p>
-        </div> -->
+        </div>
         <ul class="entry-list">
         </ul>
       </div>
     </div>
+
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
