@@ -89,3 +89,8 @@ ul {
 .align-center {
   text-align: center;
 }
+
+i {
+  color: #562b81;
+  padding-top: 1.15em;
+}
