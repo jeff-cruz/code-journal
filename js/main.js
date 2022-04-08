@@ -119,10 +119,10 @@ function appendEntry(entry) {
   for (var i = 0; i < data.entries.length; i++) {
     $entryList.append(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
 }
 
 // changing the view of the page
-window.addEventListener('DOMContentLoaded', viewSwap(data.view));
 function viewSwap(view) {
   data.view = view;
   for (var i = 0; i < $viewList.length; i++) {
@@ -153,13 +153,11 @@ function newEntryButton(event) {
 
 // clickable pencil icon for editing and populating fields
 $parentElement.addEventListener('click', editButton);
-function editButton({ target }) {
+function editButton(event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
-  } else {
-    return;
   }
-  var $editIcon = target.closest('li');
+  var $editIcon = event.target.closest('li');
   var currentEditID = $editIcon.getAttribute('data-entry-id');
   data.editing = currentEditID;
   for (var i = 0; i < data.entries.length; i++) {
