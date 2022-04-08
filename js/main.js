@@ -12,13 +12,14 @@ var $viewList = document.querySelectorAll('.view');
 var $parentElement = document.querySelector('ul');
 var $heading = document.querySelector('#new-title');
 var $noEntry = document.querySelector('.no-entries');
-
-$inputURL.addEventListener('input', photoInput);
-$journalForm.addEventListener('submit', submitButton);
-window.addEventListener('DOMContentLoaded', appendEntry);
-window.addEventListener('DOMContentLoaded', viewSwap(data.view));
+var $deleteButton = document.querySelector('.delete');
+var $buttonContainer = document.querySelector('.button-container');
+var $overlay = document.querySelector('.overlay');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmButton = document.querySelector('.confirm-button');
 
 // sets placeholder as image if no image is found
+$inputURL.addEventListener('input', photoInput);
 function photoInput(event) {
   if ($inputURL.value !== '') {
     $placeholder.src = event.target.value;
@@ -28,6 +29,7 @@ function photoInput(event) {
 }
 
 // submit button if new or edit
+$journalForm.addEventListener('submit', submitButton);
 function submitButton(event) {
   event.preventDefault();
   if (data.editing === null) {
@@ -112,10 +114,12 @@ function renderEntry(entry) {
 }
 
 // adding the entry to the entry list
+window.addEventListener('DOMContentLoaded', appendEntry);
 function appendEntry(entry) {
   for (var i = 0; i < data.entries.length; i++) {
     $entryList.append(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
 }
 
 // changing the view of the page
@@ -144,17 +148,16 @@ $newEntryButton.addEventListener('click', newEntryButton);
 function newEntryButton(event) {
   viewSwap('entry-form');
   data.view = 'entry-form';
+  resetForm();
 }
 
 // clickable pencil icon for editing and populating fields
-$parentElement.addEventListener('click', editView);
-function editView({ target }) {
+$parentElement.addEventListener('click', editButton);
+function editButton(event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
-  } else {
-    return;
   }
-  var $editIcon = target.closest('li');
+  var $editIcon = event.target.closest('li');
   var currentEditID = $editIcon.getAttribute('data-entry-id');
   data.editing = currentEditID;
   for (var i = 0; i < data.entries.length; i++) {
@@ -163,8 +166,46 @@ function editView({ target }) {
       break;
     }
   }
+  deleteAppear();
   $heading.textContent = 'Edit Entry';
   prepopulateData();
+}
+
+// delete entry
+$confirmButton.addEventListener('click', confirmDeletion);
+function confirmDeletion(event) {
+  var $entriesContainer = document.querySelector('ul');
+  var $entriesList = document.querySelectorAll('li');
+  for (var j = 0; j < $entriesList.length; j++) {
+    var currentEntryID = $entriesList[j].getAttribute('data-entry-id');
+    if (currentEntryID === data.editing.entryID.toString()) {
+      data.entries.splice(j, 1);
+      $entriesContainer.removeChild($entriesList[j]);
+    }
+  }
+  $overlay.className = 'overlay hidden';
+  data.editing = null;
+  viewSwap('entries');
+}
+
+// make delete button appear on edit page
+function deleteAppear(event) {
+  $deleteButton.className = 'delete';
+  $buttonContainer.className = 'row align-right button-container space-between';
+}
+
+// delete pop up appears
+$deleteButton.addEventListener('click', deleteButton);
+function deleteButton(event) {
+  event.preventDefault();
+  $overlay.className = 'overlay';
+
+}
+
+// cancel button
+$cancelButton.addEventListener('click', cancelButton);
+function cancelButton(event) {
+  $overlay.className = 'overlay hidden';
 }
 
 // prepopulate data
@@ -181,4 +222,12 @@ function noEntries(event) {
   } else {
     $noEntry.className = 'no-entries align-center';
   }
+}
+
+function resetForm(event) {
+  $heading.textContent = 'New Entry';
+  $deleteButton.className = 'delete hidden';
+  $buttonContainer.className = 'row align-right button-container';
+  $placeholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $journalForm.reset();
 }
